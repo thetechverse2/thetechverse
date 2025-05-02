@@ -17,6 +17,11 @@
    <div class="flex items-center">
     <img alt="The Techverse Logo" class="w-28 h-28 object-contain" src="logo.jpeg"/>
    </div>
+   <!-- Mobile menu button -->
+   <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+     <i class="fas fa-bars"></i>
+   </button>
+   <!-- Desktop Navigation -->
    <nav class="hidden md:flex items-center space-x-6 text-sm font-normal text-white">
     <a class="hover:underline cursor-pointer" href="#story">
      About
@@ -36,6 +41,31 @@
     </a>
    </nav>
   </header>
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 hidden">
+    <div class="flex justify-end p-6">
+      <button id="close-menu" class="text-white text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col items-center space-y-8 text-xl font-normal text-white">
+      <a class="hover:underline cursor-pointer" href="#story" onclick="closeMobileMenu()">
+        About
+      </a>
+      <a class="hover:underline cursor-pointer" href="#services" onclick="closeMobileMenu()">
+        Services
+      </a>
+      <a class="hover:underline cursor-pointer" href="#portfolio" onclick="closeMobileMenu()">
+        Portfolio
+      </a>
+      <a class="hover:underline cursor-pointer" href="#contact" onclick="closeMobileMenu()">
+        Contact
+      </a>
+      <a aria-label="X (Twitter)" class="social-icon" href="#">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+    </nav>
+  </div>
   <div class="bg-image-container -z-10">
    <img alt="Techverse background" src="techversebg.jpg"/>
   </div>
@@ -203,7 +233,7 @@
       <!-- Video Project 1 -->
       <div class="portfolio-item rounded-lg overflow-hidden">
         <div class="aspect-[16/9] w-full">
-          <video class="w-full h-full object-contain" controlsList="nodownload" controls>
+          <video class="w-full h-full object-contain" controls playsinline>
             <source src="vid 1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -216,7 +246,7 @@
       <!-- Video Project 2 -->
       <div class="portfolio-item rounded-lg overflow-hidden">
         <div class="aspect-[16/9] w-full">
-          <video class="w-full h-full object-contain" controlsList="nodownload" controls>
+          <video class="w-full h-full object-contain" controls playsinline>
             <source src="vid 2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -451,6 +481,32 @@
   </style>
 
   <script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMobileMenu() {
+    mobileMenu.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  mobileMenuButton.addEventListener('click', openMobileMenu);
+  closeMenuButton.addEventListener('click', closeMobileMenu);
+
+  // Close mobile menu when clicking outside
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      closeMobileMenu();
+    }
+  });
+
+  // Existing functions
   function openFullscreen(src, type) {
     const modal = document.getElementById('fullscreenModal');
     const image = document.getElementById('fullscreenImage');
