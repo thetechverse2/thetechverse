@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Contact Form Styles */
+.contact-form input,
+.contact-form textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7AB8F5;
+  outline: none;
+}
+
+/* Button Styles */
+.gradient-button {
+  background: linear-gradient(to bottom, #6DB0F7, #3B7DD8);
+  transition: filter 0.3s ease;
+}
+
+.gradient-button:hover {
+  filter: brightness(110%);
+}
+
+/* Social Media Icons */
+.social-icon {
+  color: #7AB8F5;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: white;
+}
+
+/* Card Styles */
+.service-card {
+  background-color: rgba(47, 110, 189, 0.8);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Header Styles */
+.header {
+  background-color: rgba(18, 24, 38, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Team Swiper Styles */
+.team-swiper {
+  padding: 20px 50px;
+}
+
+.team-card {
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #4A90E2 !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px !important;
+} 
